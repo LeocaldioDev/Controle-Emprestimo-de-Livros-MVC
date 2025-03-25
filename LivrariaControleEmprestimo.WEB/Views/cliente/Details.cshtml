@@ -1,0 +1,68 @@
+﻿@model LivrariaControleEmprestimo.DATA.Models.Cliente
+
+@{
+    ViewData["Title"] = "Detalhes do Cliente";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Detalhes do Cliente</h2>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Editar</a>
+            <a asp-action="Index" class="btn btn-secondary">Voltar para a Lista</a>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h4 class="card-title">Informações Pessoais</h4>
+            <hr />
+            <div class="form-group">
+                <label asp-for="Bi"></label>
+                <input asp-for="Bi" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="Nome"></label>
+                <input asp-for="Nome" class="form-control" readonly />
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h4 class="card-title">Endereço</h4>
+            <hr />
+            <div class="form-group">
+                <label asp-for="Endereco"></label>
+                <input asp-for="Endereco" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="Cidade"></label>
+                <input asp-for="Cidade" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="Bairro"></label>
+                <input asp-for="Bairro" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="Numero"></label>
+                <input asp-for="Numero" class="form-control" readonly />
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h4 class="card-title">Contato</h4>
+            <hr />
+            <div class="form-group">
+                <label asp-for="Telefone"></label>
+                <input asp-for="Telefone" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="TelefoneFixo"></label>
+                <input asp-for="TelefoneFixo" class="form-control" readonly />
+            </div>
+        </div>
+    </div>
+</div>
