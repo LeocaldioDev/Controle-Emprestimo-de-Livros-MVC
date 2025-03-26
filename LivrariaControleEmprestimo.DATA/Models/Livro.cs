@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -19,26 +20,31 @@ public partial class Livro
     [Column("nome")]
     [StringLength(100)]
     [Unicode(false)]
+    [DisplayName("Titulo")]
     public string Nome { get; set; }
 
     [Required]
     [Column("autor")]
     [StringLength(100)]
     [Unicode(false)]
+    [DisplayName("Autor")]
     public string Autor { get; set; }
 
     [Required]
     [Column("editora")]
     [StringLength(50)]
     [Unicode(false)]
+    [DisplayName("Editora")]
     public string Editora { get; set; }
 
     [Column("anoPublicacao", TypeName = "datetime")]
+    [DisplayName("Ano")]
     public DateTime AnoPublicacao { get; set; }
 
     [Column("edicao")]
     [StringLength(50)]
     [Unicode(false)]
+    [DisplayName("Ediçãos")]
     public string Edicao { get; set; }
 
     [InverseProperty("IdlivroNavigation")]

@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -19,46 +20,54 @@ public partial class Cliente
     [Column("bi")]
     [StringLength(25)]
     [Unicode(false)]
+    [DisplayName("Bilhete de Identidade")]
     public string Bi { get; set; }
 
     [Required]
     [Column("nome")]
     [StringLength(100)]
     [Unicode(false)]
+    [DisplayName("Nome")]
     public string Nome { get; set; }
 
     [Required]
     [Column("endereco")]
     [StringLength(50)]
     [Unicode(false)]
+    [DisplayName("Endereço")]
     public string Endereco { get; set; }
 
     [Required]
     [Column("cidade")]
     [StringLength(50)]
     [Unicode(false)]
+    [DisplayName("Cidade")]
     public string Cidade { get; set; }
 
     [Required]
     [Column("bairro")]
     [StringLength(50)]
     [Unicode(false)]
+    [DisplayName("Bairro")]
     public string Bairro { get; set; }
 
     [Required]
     [Column("numero")]
     [StringLength(50)]
     [Unicode(false)]
+    [DisplayName("Numero")]
     public string Numero { get; set; }
 
     [Column("telefone")]
     [StringLength(50)]
     [Unicode(false)]
+    [DisplayName("Telefone")]
     public string Telefone { get; set; }
 
     [Column("telefoneFixo")]
     [StringLength(50)]
     [Unicode(false)]
+    [DisplayName("Telefone Fixo")]
     public string TelefoneFixo { get; set; }
 
     [InverseProperty("IdclienteNavigation")]
