@@ -9,19 +9,37 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LivrariaControleEmprestimo.DATA.Models;
 
-[Table("livro_cliente_emprestimo")]
-public partial class LivroClienteEmprestimo
+
+public partial class VwLivroClienteEmprestimo
 {
-    [Key]
+    [Required]
+    [Column("bi")]
+    [StringLength(25)]
+    [Unicode(false)]
+    [DisplayName("Bi")]
+    public string Bi { get; set; }
+
+    [Required]
+    [Column("nome_cliente")]
+    [StringLength(100)]
+    [Unicode(false)]
+    [DisplayName("Nome Cliente")]
+    public string NomeCliente { get; set; }
+
+    [Required]
+    [Column("nome_livro")]
+    [StringLength(100)]
+    [Unicode(false)]
+    [DisplayName("Nome Livro")]
+    public string NomeLivro { get; set; }
+
     [Column("id")]
     public int Id { get; set; }
 
     [Column("idlivro")]
-    [DisplayName("Livro")]
     public int? Idlivro { get; set; }
 
     [Column("idcliente")]
-    [DisplayName("Cliente")]
     public int? Idcliente { get; set; }
 
     [Column("dataEmprestimo", TypeName = "datetime")]
@@ -35,12 +53,4 @@ public partial class LivroClienteEmprestimo
     [Column("entregue")]
     [DisplayName("Entregue")]
     public bool Entregue { get; set; }
-
-    [ForeignKey("Idcliente")]
-    [InverseProperty("LivroClienteEmprestimos")]
-    public virtual Cliente IdclienteNavigation { get; set; }
-
-    [ForeignKey("Idlivro")]
-    [InverseProperty("LivroClienteEmprestimos")]
-    public virtual Livro IdlivroNavigation { get; set; }
 }

@@ -20,7 +20,7 @@ public partial class Livro
     [Column("nome")]
     [StringLength(100)]
     [Unicode(false)]
-    [DisplayName("Titulo")]
+    [DisplayName("Nome")]
     public string Nome { get; set; }
 
     [Required]
@@ -38,15 +38,16 @@ public partial class Livro
     public string Editora { get; set; }
 
     [Column("anoPublicacao", TypeName = "datetime")]
-    [DisplayName("Ano")]
+    [DisplayName("Ano Publicacao")]
     public DateTime AnoPublicacao { get; set; }
 
     [Column("edicao")]
     [StringLength(50)]
     [Unicode(false)]
-    [DisplayName("Ediçãos")]
+    [DisplayName("Edicao")]
     public string Edicao { get; set; }
 
     [InverseProperty("IdlivroNavigation")]
+    [DisplayName("Emprestimo")]
     public virtual ICollection<LivroClienteEmprestimo> LivroClienteEmprestimos { get; set; } = new List<LivroClienteEmprestimo>();
 }

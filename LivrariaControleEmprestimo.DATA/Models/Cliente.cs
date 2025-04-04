@@ -20,7 +20,7 @@ public partial class Cliente
     [Column("bi")]
     [StringLength(25)]
     [Unicode(false)]
-    [DisplayName("Bilhete de Identidade")]
+    [DisplayName ("Bi")]
     public string Bi { get; set; }
 
     [Required]
@@ -41,7 +41,7 @@ public partial class Cliente
     [Column("cidade")]
     [StringLength(50)]
     [Unicode(false)]
-    [DisplayName("Cidade")]
+    [DisplayName("CIdade")]
     public string Cidade { get; set; }
 
     [Required]
@@ -67,7 +67,6 @@ public partial class Cliente
     [Column("telefoneFixo")]
     [StringLength(50)]
     [Unicode(false)]
-    [DisplayName("Telefone Fixo")]
     public string TelefoneFixo { get; set; }
 
     [InverseProperty("IdclienteNavigation")]
