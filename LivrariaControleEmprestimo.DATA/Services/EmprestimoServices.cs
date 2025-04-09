@@ -11,8 +11,13 @@ namespace LivrariaControleEmprestimo.DATA.Services
     {
 
         public RepositoryIVwLivroClienteEmprestimo oRepositoryIVwLivroClienteEmprestimo { get; set; }
+        public RepositoryLivro oRepositoryLivro { get; set; }
+
+        public RepositoryCliente oRepositoryCliente { get; set; }
         public EmprestimoServices()
         {
+            oRepositoryLivro = new RepositoryLivro();
+            oRepositoryCliente = new RepositoryCliente();
            oRepositoryIVwLivroClienteEmprestimo = new RepositoryIVwLivroClienteEmprestimo();
         }
 
