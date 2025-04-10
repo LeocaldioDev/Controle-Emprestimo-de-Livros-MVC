@@ -12,6 +12,7 @@ namespace LivrariaControleEmprestimo.DATA.Models;
 [Table("Cliente")]
 public partial class Cliente
 {
+
     [Key]
     [Column("id")]
     public int Id { get; set; }

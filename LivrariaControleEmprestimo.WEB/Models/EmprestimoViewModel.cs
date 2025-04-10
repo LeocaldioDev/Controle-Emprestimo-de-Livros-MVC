@@ -15,5 +15,6 @@ namespace LivrariaControleEmprestimo.WEB.Models
 
         public List<Cliente> oListCliente { get; set; }
         public List<Livro> oListLivro { get; set; }
+
     }
 }

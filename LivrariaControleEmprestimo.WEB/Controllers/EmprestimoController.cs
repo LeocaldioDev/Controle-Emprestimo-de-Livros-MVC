@@ -18,6 +18,7 @@ namespace LivrariaControleEmprestimo.WEB.Controllers
 
         public IActionResult Create()
         {
+
             EmprestimoViewModel oEmprestimoViewModel = new EmprestimoViewModel();
 
             List<Livro> olistLivros = oEmprestimo.oRepositoryLivro.SelecionarTodos();
