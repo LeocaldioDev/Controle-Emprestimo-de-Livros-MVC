@@ -10,6 +10,14 @@
     <h4>LivroClienteEmprestimo</h4>
     <hr />
 
+    <div hidden class="form-group">
+        <input asp-for="idCliente" class="form-control" />
+    </div>
+
+    <div hidden class="form-group">
+        <input asp-for="idLivro" class="form-control" />
+    </div>
+
     <div class="row mb-4">
         <div class="col-md-12">
             <div class="card">
@@ -136,5 +144,35 @@
                 url: '//cdn.datatables.net/plug-ins/2.2.2/i18n/pt-PT.json'
             }
         });
+
+        const table1 = new DataTable('#myTablelistCliente');
+
+        table1.on('click', 'tbody tr', (e) => {
+            let classList = e.currentTarget.classList;
+
+            if (classList.contains('selected')) {
+                classList.remove('selected');
+            }
+            else {
+                table1.rows('.selected').nodes().each((row) => row.classList.remove('selected'));
+                classList.add('selected');
+            }
+        });
+
+
+        const table2 = new DataTable('#myTablelistLivro');
+
+        table2.on('click', 'tbody tr', (e) => {
+            let classList = e.currentTarget.classList;
+
+            if (classList.contains('selected')) {
+                classList.remove('selected');
+            }
+            else {
+                table2.rows('.selected').nodes().each((row) => row.classList.remove('selected'));
+                classList.add('selected');
+            }
+        });
+
     </script>
 }
