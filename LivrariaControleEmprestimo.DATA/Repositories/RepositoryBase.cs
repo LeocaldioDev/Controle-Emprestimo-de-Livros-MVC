@@ -52,6 +52,7 @@ namespace LivrariaControleEmprestimo.DATA.Repositories
 
         }
 
+
         public T Incluir(T objecto)
         {
             _contexto.Set<T>().Add(objecto);
