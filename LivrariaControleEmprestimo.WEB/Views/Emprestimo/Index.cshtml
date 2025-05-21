@@ -34,7 +34,20 @@
                         <td>@Html.DisplayFor(modelItem => item.NomeCliente)</td>
                         <td>@Html.DisplayFor(modelItem => item.NomeLivro)</td>
                         <td>@Html.DisplayFor(modelItem => item.DataEmprestimo)</td>
-                        <td>@Html.DisplayFor(modelItem => item.DataDevolucao)</td>
+                        @{
+                            var styleStatus = "text-white bg-success";
+                            if (DateTime.Now.Date > item.DataDevolucao)
+                            {
+                                styleStatus = "text-white bg-danger";
+                            }
+                            else if (DateTime.Now.Date.Equals(item.DataDevolucao))
+                            {
+                                styleStatus = "bg-warning";
+                            }
+                        }
+                        <td class="@styleStatus">
+                            @Html.DisplayFor(modelItem => item.DataDevolucao)
+                        </td>
                         <td>@Html.DisplayFor(modelItem => item.Entregue)</td>
                         <td class="text-center">
                             <a asp-action="Edit" class="btn btn-success btn-sm" asp-route-id="@item.Id">

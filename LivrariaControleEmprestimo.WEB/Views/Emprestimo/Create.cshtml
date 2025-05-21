@@ -9,13 +9,17 @@
 
     <h4>LivroClienteEmprestimo</h4>
     <hr />
+    <div>
+        <a class="btn btn-primary" asp-action="Index">Voltar</a>
+    </div>
+    <br />
 
     <div hidden class="form-group">
-        <input asp-for="idCliente" class="form-control" />
+        <input id="idCliente" asp-for="idCliente" class="form-control" />
     </div>
 
     <div hidden class="form-group">
-        <input asp-for="idLivro" class="form-control" />
+        <input id="idLivro" asp-for="idLivro" class="form-control" />
     </div>
 
     <div class="row mb-4">
@@ -35,7 +39,7 @@
                         <tbody>
                             @foreach (var item in Model.oListCliente)
                             {
-                                <tr>
+                                <tr onclick="passIdCliente('@item.Id')">
                                     <td>@Html.DisplayFor(modelItem => item.Bi)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Nome)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Telefone)</td>
@@ -67,7 +71,7 @@
                         <tbody>
                             @foreach (var item in Model.oListLivro)
                             {
-                                <tr>
+                                <tr onclick="passIdLivro('@item.Id')">
                                     <td>@Html.DisplayFor(modelItem => item.Nome)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Autor)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Editora)</td>
@@ -92,7 +96,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label asp-for="dataEmprestimo" class="control-label"></label>
-                                    <input asp-for="dataEmprestimo" class="form-control" />
+                                    <input readonly asp-for="dataEmprestimo" class="form-control" />
                                     <span asp-validation-for="dataEmprestimo" class="text-danger"></span>
                                 </div>
                             </div>
@@ -109,20 +113,18 @@
             </div>
         </div>
     </div>
-
+     <br />
     <div class="row">
         <div class="col-md-4 offset-md-4">
             <form asp-action="Create">
                 <div class="form-group text-center">
-                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <input type="submit" value="Incluir" class="btn btn-success" />
                 </div>
             </form>
         </div>
     </div>
 
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
+    
 </div>
 
 @{
@@ -130,7 +132,7 @@
 }
 
 @section Scripts {
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
@@ -173,6 +175,25 @@
                 classList.add('selected');
             }
         });
+
+
+
+       function passIdCliente(idCliente)
+        {
+            document.getElementById('idCliente').value = idCliente
+        }
+
+
+
+        function passIdLivro(idLivro)
+        {
+            document.getElementById('idLivro').value = idLivro
+        }
+        
+
+
+
+
 
     </script>
 }
