@@ -36,8 +36,11 @@ namespace LivrariaControleEmprestimo.WEB.Controllers
         [HttpPost]
         public IActionResult Create(EmprestimoViewModel oEmprestimoViewModel)
         {
-            
 
+            oEmprestimoViewModel.oListCliente = oEmprestimo.oRepositoryCliente.SelecionarTodos();
+            oEmprestimoViewModel.oListLivro = oEmprestimo.oRepositoryLivro.SelecionarTodos();
+            oEmprestimoViewModel.oLivro = oEmprestimo.oRepositoryLivro.SelecionarPK(oEmprestimoViewModel.idLivro);
+            oEmprestimoViewModel.oCliente = oEmprestimo.oRepositoryCliente.SelecionarPK(oEmprestimoViewModel.idCliente);
             LivroClienteEmprestimo oLivroClienteEmprestimo = new LivroClienteEmprestimo();
             oLivroClienteEmprestimo.DataEmprestimo = oEmprestimoViewModel.dataEmprestimo;
             oLivroClienteEmprestimo.DataDevolucao = oEmprestimoViewModel.dataEntrega;
@@ -46,13 +49,13 @@ namespace LivrariaControleEmprestimo.WEB.Controllers
             oLivroClienteEmprestimo.Idlivro = oEmprestimoViewModel.idLivro;
 
 
-            if (!ModelState.IsValid)
+            if (oLivroClienteEmprestimo.Idcliente == 0 || oLivroClienteEmprestimo.Idlivro ==0)
             {
-                return View();
+                return BadRequest();
             }
             oEmprestimo.oRepositoryLivroClienteEmprestimo.Incluir(oLivroClienteEmprestimo);
 
-            return RedirectToAction("index");
+            return RedirectToAction("Index");
         }
     }
 }

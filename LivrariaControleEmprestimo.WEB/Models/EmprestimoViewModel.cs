@@ -1,4 +1,5 @@
 ﻿using LivrariaControleEmprestimo.DATA.Models;
+using LivrariaControleEmprestimo.DATA.Services;
 using NuGet.Configuration;
 
 namespace LivrariaControleEmprestimo.WEB.Models
@@ -15,8 +16,10 @@ namespace LivrariaControleEmprestimo.WEB.Models
 
         public DateTime dataEntrega { get; set; }
 
-        public List<Cliente> oListCliente { get; set; }
+        public  List<Cliente> oListCliente { get; set; }
         public List<Livro> oListLivro { get; set; }
+
+
 
     }
 }
