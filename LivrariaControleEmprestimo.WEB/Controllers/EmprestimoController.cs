@@ -85,5 +85,10 @@ namespace LivrariaControleEmprestimo.WEB.Controllers
             return RedirectToAction("Details", new {id});
         }
 
+        public IActionResult Delete(int id)
+        {
+            oEmprestimo.oRepositoryLivroClienteEmprestimo.Excluir(id);
+            return RedirectToAction("Index");
+        }
     }
 }
