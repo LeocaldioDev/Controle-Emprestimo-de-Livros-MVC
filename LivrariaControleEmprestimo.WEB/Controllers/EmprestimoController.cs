@@ -57,5 +57,33 @@ namespace LivrariaControleEmprestimo.WEB.Controllers
 
             return RedirectToAction("Index");
         }
+
+
+       public IActionResult Details(int id)
+        {
+            LivroClienteEmprestimo oLivroClienteEmprestimo = oEmprestimo.oRepositoryLivroClienteEmprestimo.SelecionarPK(id);
+            EmprestimoViewModel oEmprestimoViewModel = new EmprestimoViewModel();
+            oEmprestimoViewModel.oLivro = oEmprestimo.oRepositoryLivro.SelecionarPK(oLivroClienteEmprestimo.Idlivro);
+            oEmprestimoViewModel.oCliente = oEmprestimo.oRepositoryCliente.SelecionarPK(oLivroClienteEmprestimo.Idcliente);
+            oEmprestimoViewModel.Estado = oLivroClienteEmprestimo.Entregue;
+            oEmprestimoViewModel.dataEntrega =(DateTime) oLivroClienteEmprestimo.DataDevolucao;
+            oEmprestimoViewModel.dataEmprestimo = (DateTime) oLivroClienteEmprestimo.DataEmprestimo;
+            return View(oEmprestimoViewModel);
+        }
+
+        public IActionResult Edit(int id)
+        {
+            LivroClienteEmprestimo olivroClienteEmprestimo = oEmprestimo.oRepositoryLivroClienteEmprestimo.SelecionarPK(id);
+            return View(olivroClienteEmprestimo);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(LivroClienteEmprestimo oLivroClienteEmprestimo)
+        {
+            oEmprestimo.oRepositoryLivroClienteEmprestimo.Alterar(oLivroClienteEmprestimo);
+            int id =(int) oLivroClienteEmprestimo.Idcliente;
+            return RedirectToAction("Details", new {id});
+        }
+
     }
 }

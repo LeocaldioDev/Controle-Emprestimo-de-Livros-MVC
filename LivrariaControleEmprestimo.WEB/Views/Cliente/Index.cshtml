@@ -9,7 +9,7 @@
 
     <p>
         <a class="btn btn-primary" asp-action="Create">
-            <i class="bi bi-plus-circle"></i> Novo Cliente
+            <i class="fa fa-plus-circle"></i> Novo Cliente
         </a>
     </p>
 
@@ -34,14 +34,14 @@
                             <td>@Html.DisplayFor(modelItem => item.TelefoneFixo)</td>
                             <td class="text-center">
                                 <a asp-action="Edit" class="btn btn-success btn-sm" asp-route-id="@item.Id">
-                                    <i class="bi bi-pencil-square"></i> Alterar
+                                    <i class="fa fa-edit"></i>
                                 </a>
                                 <a asp-action="Details" class="btn btn-primary btn-sm" asp-route-id="@item.Id">
-                                    <i class="bi bi-info-circle"></i> Detalhes
+                                    <i class="fa fa-search"></i>
                                 </a>
 
                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#DeleteModal-@item.Id">
-                                    Excluir
+                                <i class="fa fa-trash"></i>
                                 </button>
 
                                 <div class="modal fade" id="DeleteModal-@item.Id" tabindex="-1" role="dialog" aria-labelledby="DeleteModalLabel" aria-hidden="true">
